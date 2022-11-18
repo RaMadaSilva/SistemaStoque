@@ -23,7 +23,7 @@ namespace GestãoDeEstoque.Models
 
         public void Remover()
         {
-
+            Removido = true;
         }
 
         public override string ToString()

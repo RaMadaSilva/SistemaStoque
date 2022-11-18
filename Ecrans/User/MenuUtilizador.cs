@@ -35,7 +35,7 @@ namespace GestãoDeEstoque.Ecrans.User
                     case 4:
                         Console.WriteLine("Caso 4"); break;
                     case 5:
-                        Console.WriteLine("Caso 5"); break;
+                        EcranCrud.Remover(); break;
                     case 0:
                         MenuPrincipal.Menu(); break;
                     default:

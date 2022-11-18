@@ -65,14 +65,50 @@ namespace GestãoDeEstoque.Ecrans.User
                 Console.Clear();
                 Console.WriteLine("Utilizador Selecionado");
                 var repo = new RepositorioUtilizador();
-                var repo1 = new Repositorio<Utilizador>();
                 var user = repo.Ler(id);
-                var usr = repo1.Ler(id);
                 Console.WriteLine(user);
-                Console.WriteLine(usr);
 
                 Console.WriteLine();
                 Console.WriteLine("-------------------------------");
+                Console.WriteLine("Prima qualquer tecla para sair");
+                Console.ReadKey();
+                MenuUtilizador.Load();
+            }
+            else
+            {
+                Console.WriteLine("O valor inserido é invalido");
+                Console.WriteLine();
+                Console.WriteLine("Prima qualquer tecla para sair");
+                Console.ReadKey();
+                MenuUtilizador.Load();
+            }
+        }
+
+        public static void Remover()
+        {
+            Console.Clear();
+            Console.Write("Remoção de um Utilizador: ");
+            Console.WriteLine("-----------------------------");
+            Console.WriteLine();
+            Console.Write("Inser O Id do Utilizador: ");
+            var entrada = int.TryParse(Console.ReadLine(), out int id);
+
+            if (entrada)
+            {
+                var repo = new RepositorioUtilizador();
+                repo.Remover(id);
+
+                Console.WriteLine("Utilizador removido com sucesso");
+                Console.WriteLine("------------------------------------");
+                Console.WriteLine("Prima qualquer tecla para sair");
+                Console.ReadKey();
+                MenuUtilizador.Load();
+
+            }
+            else
+            {
+                Console.WriteLine("O valor inserido é invalido");
+                Console.WriteLine();
                 Console.WriteLine("Prima qualquer tecla para sair");
                 Console.ReadKey();
                 MenuUtilizador.Load();
