@@ -36,6 +36,7 @@ namespace GestãoDeEstoque.Ecrans.User
         {
             Console.Clear();
             Console.WriteLine("Lista de Utilizadores");
+            Console.WriteLine();
             var repo = new RepositorioUtilizador();
             var itens = repo.Ler();
             foreach (var item in itens)
@@ -53,6 +54,7 @@ namespace GestãoDeEstoque.Ecrans.User
         {
             Console.Clear();
             Console.WriteLine("Lista de Utilizadores Activos");
+            Console.WriteLine();
             var repo = new RepositorioUtilizador();
             var itens = repo.LerUtilizadoresActivos();
             foreach (var item in itens)

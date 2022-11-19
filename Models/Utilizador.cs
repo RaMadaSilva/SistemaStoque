@@ -28,7 +28,7 @@ namespace GestãoDeEstoque.Models
 
         public override string ToString()
         {
-            return $"Id: {Id}, Nome: {Nome}, Função: {Funcao}";
+            return $"Id: {Id}, Nome: {Nome}, Função: {Funcao}, Removido: {Removido}";
         }
     }
 }
