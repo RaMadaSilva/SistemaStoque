@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GestãoDeEstoque.Data;
 using GestãoDeEstoque.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestãoDeEstoque.Repositorio
 {
@@ -18,6 +19,7 @@ namespace GestãoDeEstoque.Repositorio
             _context.Utilizadores.Update(usr);
             _context.SaveChanges();
         }
-
+        public IEnumerable<Utilizador> LerUtilizadoresActivos()
+            => _context.Utilizadores.AsNoTracking().Where(x => x.Removido == false).ToList();
     }
 }

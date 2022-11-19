@@ -35,17 +35,29 @@ namespace GestãoDeEstoque.Ecrans.User
         public static void LerTodos()
         {
             Console.Clear();
+            Console.WriteLine("Lista de Utilizadores");
             var repo = new RepositorioUtilizador();
-            var repo1 = new Repositorio<Utilizador>();
             var itens = repo.Ler();
-            var values = repo1.Ler();
             foreach (var item in itens)
             {
                 Console.WriteLine(item);
             }
-            foreach (var value in values)
+            Console.WriteLine();
+            Console.WriteLine("-------------------------------");
+            Console.WriteLine("Prima qualquer tecla para sair");
+            Console.ReadKey();
+            MenuUtilizador.Load();
+        }
+
+        public static void LerActivos()
+        {
+            Console.Clear();
+            Console.WriteLine("Lista de Utilizadores Activos");
+            var repo = new RepositorioUtilizador();
+            var itens = repo.LerUtilizadoresActivos();
+            foreach (var item in itens)
             {
-                Console.WriteLine(value);
+                Console.WriteLine(item);
             }
             Console.WriteLine();
             Console.WriteLine("-------------------------------");
@@ -57,6 +69,8 @@ namespace GestãoDeEstoque.Ecrans.User
         public static void LerUm()
         {
             Console.Clear();
+            Console.WriteLine("Listar um Utilizadore");
+            Console.WriteLine();
             Console.Write("Inser O Id do Utilizador: ");
             var entrada = int.TryParse(Console.ReadLine(), out int id);
 
@@ -113,6 +127,30 @@ namespace GestãoDeEstoque.Ecrans.User
                 Console.ReadKey();
                 MenuUtilizador.Load();
             }
+        }
+
+        //TODO
+        public static void Actualizar()
+        {
+
+            Console.Clear();
+            Console.WriteLine("Actualizar Utilizador");
+            Console.WriteLine("-----------------------------");
+            Console.WriteLine();
+            Console.Write("Nome: ");
+            var nome = Console.ReadLine()!;
+            Console.Write("Função: ");
+            var funcao = Console.ReadLine()!;
+            Console.WriteLine();
+
+            var ul = new Utilizador(nome, funcao);
+            var repo = new RepositorioUtilizador();
+            repo.Criar(ul);
+            Console.WriteLine("Utilizador Criado com Sucecesso ");
+            Console.WriteLine("Prima qualquer tecla para sair");
+            Console.ReadKey();
+            MenuUtilizador.Load();
+
         }
     }
 }

@@ -14,9 +14,10 @@ namespace GestãoDeEstoque.Ecrans.User
             Console.WriteLine("---------------------------");
             Console.WriteLine("-1 = Inserir Novo Utilizador");
             Console.WriteLine("-2 = Listar Todos Utilizadores");
-            Console.WriteLine("-3 = Listar Um Utilizador");
-            Console.WriteLine("-4 = Actualizar  Utilizador");
-            Console.WriteLine("-5 = Remover  Utilizador");
+            Console.WriteLine("-3 = Listar Utilizadores Activos");
+            Console.WriteLine("-4 = Listar Um Utilizador");
+            Console.WriteLine("-5 = Actualizar  Utilizador");
+            Console.WriteLine("-6 = Remover  Utilizador");
             Console.WriteLine("-0 = Voltar Ao Menu Principal");
             Console.WriteLine("-----------------------------");
             Console.Write("Escolhe uma das opções: ");
@@ -31,10 +32,12 @@ namespace GestãoDeEstoque.Ecrans.User
                     case 2:
                         EcranCrud.LerTodos(); break;
                     case 3:
-                        EcranCrud.LerUm(); break;
+                        EcranCrud.LerActivos(); break;
                     case 4:
-                        Console.WriteLine("Caso 4"); break;
+                        EcranCrud.LerUm(); break;
                     case 5:
+                        Console.WriteLine("Caso 4"); break;
+                    case 6:
                         EcranCrud.Remover(); break;
                     case 0:
                         MenuPrincipal.Menu(); break;
