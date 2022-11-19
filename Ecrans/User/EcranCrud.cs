@@ -39,6 +39,7 @@ namespace GestãoDeEstoque.Ecrans.User
             Console.WriteLine();
             var repo = new RepositorioUtilizador();
             var itens = repo.Ler();
+            Console.WriteLine("------------------------------------------"); ;
             foreach (var item in itens)
             {
                 Console.WriteLine(item);
@@ -57,6 +58,7 @@ namespace GestãoDeEstoque.Ecrans.User
             Console.WriteLine();
             var repo = new RepositorioUtilizador();
             var itens = repo.LerUtilizadoresActivos();
+            Console.WriteLine("------------------------------------------");
             foreach (var item in itens)
             {
                 Console.WriteLine(item);
@@ -82,6 +84,7 @@ namespace GestãoDeEstoque.Ecrans.User
                 Console.WriteLine("Utilizador Selecionado");
                 var repo = new RepositorioUtilizador();
                 var user = repo.Ler(id);
+                Console.WriteLine("------------------------------------------");
                 Console.WriteLine(user);
 
                 Console.WriteLine();
@@ -103,7 +106,7 @@ namespace GestãoDeEstoque.Ecrans.User
         public static void Remover()
         {
             Console.Clear();
-            Console.Write("Remoção de um Utilizador: ");
+            Console.WriteLine("Remoção de um Utilizador: ");
             Console.WriteLine("-----------------------------");
             Console.WriteLine();
             Console.Write("Inser O Id do Utilizador: ");
