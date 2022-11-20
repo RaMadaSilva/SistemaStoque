@@ -21,6 +21,15 @@ namespace GestãoDeEstoque.Models
             Produtos = new List<Produto>();
         }
 
+        public Utilizador(int id, string nome, string funcao)
+        {
+            Id = id;
+            Nome = nome;
+            Funcao = funcao;
+            Produtos = new List<Produto>();
+
+        }
+
         public void Remover()
         {
             Removido = true;

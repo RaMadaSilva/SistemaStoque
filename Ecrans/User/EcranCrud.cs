@@ -106,7 +106,7 @@ namespace GestãoDeEstoque.Ecrans.User
         public static void Remover()
         {
             Console.Clear();
-            Console.WriteLine("Remoção de um Utilizador: ");
+            Console.WriteLine("Desativar de um Utilizador: ");
             Console.WriteLine("-----------------------------");
             Console.WriteLine();
             Console.Write("Inser O Id do Utilizador: ");
@@ -115,13 +115,24 @@ namespace GestãoDeEstoque.Ecrans.User
             if (entrada)
             {
                 var repo = new RepositorioUtilizador();
-                repo.Remover(id);
+                var valido = repo.Remover(id);
 
-                Console.WriteLine("Utilizador removido com sucesso");
-                Console.WriteLine("------------------------------------");
-                Console.WriteLine("Prima qualquer tecla para sair");
-                Console.ReadKey();
-                MenuUtilizador.Load();
+                if (valido)
+                {
+                    Console.WriteLine("Utilizador removido com sucesso");
+                    Console.WriteLine("------------------------------------");
+                    Console.WriteLine("Prima qualquer tecla para sair");
+                    Console.ReadKey();
+                    MenuUtilizador.Load();
+                }
+                else
+                {
+                    Console.WriteLine("Não foi possivel remover Este utilizador");
+                    Console.WriteLine("------------------------------------");
+                    Console.WriteLine("Prima qualquer tecla para sair");
+                    Console.ReadKey();
+                    MenuUtilizador.Load();
+                }
 
             }
             else
@@ -133,29 +144,38 @@ namespace GestãoDeEstoque.Ecrans.User
                 MenuUtilizador.Load();
             }
         }
-
-        //TODO
         public static void Actualizar()
         {
-
             Console.Clear();
             Console.WriteLine("Actualizar Utilizador");
             Console.WriteLine("-----------------------------");
             Console.WriteLine();
-            Console.Write("Nome: ");
-            var nome = Console.ReadLine()!;
-            Console.Write("Função: ");
-            var funcao = Console.ReadLine()!;
-            Console.WriteLine();
+            Console.Write("Id: ");
+            var validacao = int.TryParse(Console.ReadLine(), out int id)!;
+            if (validacao)
+            {
+                Console.Write("Nome: ");
+                var nome = Console.ReadLine()!;
+                Console.Write("Função: ");
+                var funcao = Console.ReadLine()!;
+                Console.WriteLine();
 
-            var ul = new Utilizador(nome, funcao);
-            var repo = new RepositorioUtilizador();
-            repo.Criar(ul);
-            Console.WriteLine("Utilizador Criado com Sucecesso ");
-            Console.WriteLine("Prima qualquer tecla para sair");
-            Console.ReadKey();
-            MenuUtilizador.Load();
+                var user = new Utilizador(id, nome, funcao);
+                var repo = new RepositorioUtilizador();
 
+                repo.Actualizar(user);
+                Console.WriteLine("Utilizador Actualizado com Sucecesso ");
+                Console.WriteLine("Prima qualquer tecla para sair");
+                Console.ReadKey();
+                MenuUtilizador.Load();
+            }
+            else
+            {
+                Console.WriteLine("Id Invalido");
+                Console.WriteLine("Prima qualquer tecla para sair");
+                Console.ReadKey();
+                MenuUtilizador.Load();
+            }
         }
     }
 }

@@ -17,7 +17,7 @@ namespace GestãoDeEstoque.Ecrans.User
             Console.WriteLine("-3 = Listar Utilizadores Activos");
             Console.WriteLine("-4 = Listar Um Utilizador");
             Console.WriteLine("-5 = Actualizar  Utilizador");
-            Console.WriteLine("-6 = Remover  Utilizador");
+            Console.WriteLine("-6 = Desativar  Utilizador");
             Console.WriteLine("-0 = Voltar Ao Menu Principal");
             Console.WriteLine("-----------------------------");
             Console.Write("Escolhe uma das opções: ");
@@ -36,7 +36,7 @@ namespace GestãoDeEstoque.Ecrans.User
                     case 4:
                         EcranCrud.LerUm(); break;
                     case 5:
-                        Console.WriteLine("Caso 4"); break;
+                        EcranCrud.Actualizar(); break;
                     case 6:
                         EcranCrud.Remover(); break;
                     case 0:

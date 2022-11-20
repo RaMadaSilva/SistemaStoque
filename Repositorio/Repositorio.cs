@@ -20,14 +20,13 @@ namespace GestãoDeEstoque.Repositorio
 
 
         public TModel Ler(int id)
-            => _context.Set<TModel>().Find(id);
+            => _context.Set<TModel>().Find(id)!;
 
         public void Actualizar(int id)
         {
-            var model = _context.Set<TModel>().Find(id);
+            var model = _context.Set<TModel>().Find(id)!;
             _context.Set<TModel>().Update(model);
             _context.SaveChanges();
-
         }
 
         public void Actualizar(TModel model)
@@ -35,8 +34,5 @@ namespace GestãoDeEstoque.Repositorio
             _context.Set<TModel>().Update(model);
             _context.SaveChanges();
         }
-
-
-
     }
 }
