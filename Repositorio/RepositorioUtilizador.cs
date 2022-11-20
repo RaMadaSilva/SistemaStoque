@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using GestãoDeEstoque.Data;
 using GestãoDeEstoque.Models;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +10,7 @@ namespace GestãoDeEstoque.Repositorio
 
         public bool Remover(int id)
         {
-            var usr = _context.Utilizadores.FirstOrDefault(x => x.Id == id);
+            var usr = _context.Utilizadores.FirstOrDefault(x => x.Id == id)!;
             if (!usr.Removido)
             {
                 usr.Remover();
