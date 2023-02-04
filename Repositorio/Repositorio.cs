@@ -6,7 +6,10 @@ namespace GestãoDeEstoque.Repositorio
 {
     public class Repositorio<TModel> where TModel : class
     {
-        MyContext _context = new MyContext();
+        private readonly MyContext _context;
+
+        public Repositorio(MyContext context)
+            => _context = context;
 
         public void Criar(TModel model)
         {

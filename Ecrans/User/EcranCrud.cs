@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using GestãoDeEstoque.Data;
 using GestãoDeEstoque.Models;
 using GestãoDeEstoque.Repositorio;
 
@@ -24,7 +21,7 @@ namespace GestãoDeEstoque.Ecrans.User
             Console.WriteLine();
 
             var ul = new Utilizador(nome, funcao);
-            var repo = new RepositorioUtilizador();
+            var repo = new RepositorioUtilizador(new MyContext());
             repo.Criar(ul);
             Console.WriteLine("Utilizador Criado com Sucecesso ");
             Console.WriteLine("Prima qualquer tecla para sair");
@@ -37,7 +34,7 @@ namespace GestãoDeEstoque.Ecrans.User
             Console.Clear();
             Console.WriteLine("Lista de Utilizadores");
             Console.WriteLine();
-            var repo = new RepositorioUtilizador();
+            var repo = new RepositorioUtilizador(new MyContext());
             var itens = repo.Ler();
             Console.WriteLine("------------------------------------------"); ;
             foreach (var item in itens)
@@ -56,7 +53,7 @@ namespace GestãoDeEstoque.Ecrans.User
             Console.Clear();
             Console.WriteLine("Lista de Utilizadores Activos");
             Console.WriteLine();
-            var repo = new RepositorioUtilizador();
+            var repo = new RepositorioUtilizador(new MyContext());
             var itens = repo.LerUtilizadoresActivos();
             Console.WriteLine("------------------------------------------");
             foreach (var item in itens)
@@ -82,7 +79,7 @@ namespace GestãoDeEstoque.Ecrans.User
             {
                 Console.Clear();
                 Console.WriteLine("Utilizador Selecionado");
-                var repo = new RepositorioUtilizador();
+                var repo = new RepositorioUtilizador(new MyContext());
                 var user = repo.Ler(id);
                 Console.WriteLine("------------------------------------------");
                 Console.WriteLine(user);
@@ -114,7 +111,7 @@ namespace GestãoDeEstoque.Ecrans.User
 
             if (entrada)
             {
-                var repo = new RepositorioUtilizador();
+                var repo = new RepositorioUtilizador(new MyContext());
                 var valido = repo.Remover(id);
 
                 if (valido)
@@ -161,7 +158,7 @@ namespace GestãoDeEstoque.Ecrans.User
                 Console.WriteLine();
 
                 var user = new Utilizador(id, nome, funcao);
-                var repo = new RepositorioUtilizador();
+                var repo = new RepositorioUtilizador(new MyContext());
 
                 repo.Actualizar(user);
                 Console.WriteLine("Utilizador Actualizado com Sucecesso ");

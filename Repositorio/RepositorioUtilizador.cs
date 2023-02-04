@@ -6,7 +6,12 @@ namespace GestãoDeEstoque.Repositorio
 {
     public class RepositorioUtilizador : Repositorio<Utilizador>
     {
-        MyContext _context = new MyContext();
+        private readonly MyContext _context;
+
+        public RepositorioUtilizador(MyContext context) : base(context)
+        {
+            _context = context;
+        }
 
         public bool Remover(int id)
         {
